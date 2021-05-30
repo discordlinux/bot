@@ -20,7 +20,7 @@ pipestart() {
 	while true; do
 		# read line from fifo pipe
 		if IFS= read -r line </tmp/.botpipe; then
-			# get set .name in json as input
+			# get .name in json as input
 			input="$(printf "%s\n" "$line" | jq -r '.name' 2>/dev/null)"
 			# check if command script exists for input
 			if [[ -f "${botdir}/commands/${input}.sh" ]]; then
