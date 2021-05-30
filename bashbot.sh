@@ -31,7 +31,7 @@ pipestart() {
 				break
 			# else unknown input
 			else
-				echo -e "\nUnknown input:"
+				[[ "$input" != "Ready" ]] && echo -e "\nUnknown input:"
 				printf "%s\n" "$line" | jq -r '.' 2>/dev/null || printf "%s\n" "$line"
 			fi
 			unset input
