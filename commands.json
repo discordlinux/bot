@@ -3,6 +3,19 @@
   "description": "Get information about things related to Linux and the guild.",
   "options": [
     {
+        "type": 1,
+        "name": "search",
+        "description": "Quick search for information.  Any unlisted queries will return Wikipedia results.",
+        "options": [
+          {
+            "type": 3,
+            "name": "query",
+            "required": true,
+            "description": "Enter a query..."
+          }
+        ]
+    },
+    {
       "type": 1,
       "name": "distros",
       "description": "Information about Linux distributions.",

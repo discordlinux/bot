@@ -31,6 +31,14 @@ info_supported() {
     export json
 }
 
+info_other() {
+    embed="$(curl -sL "https://discord-fde27-default-rtdb.firebaseio.com/discord/info/$1.json")"
+    if [[ "$embed" == "null" ]]; then
+        embed="$(jq -n --arg tit "Info for '$1'" --arg res "No results found for '$1'." '{"embed":{"title":$tit,"description":$res,"color":"13458524"}}')"
+    fi
+    json="$(printf "%s\n" "$embed" | jq '{ "embeds": [ .embed ] }')"
+}
+
 subcmd="$(printf "%s\n" "$@" | jq -r '.options[0].name')"
 q="$(printf "%s\n" "$@" | jq -r '.options[0].options[0].value')"
 int_id="$(printf "%s\n" "$@" | jq -r '.id')"
@@ -39,12 +47,11 @@ jq -cn '{ "type": 5 }' | curl -sSLX POST -d @- -H 'content-type: application/jso
 
 case "$subcmd" in
     supported) info_supported "$q";;
-    *)
-        embed="$(curl -sL "https://discord-fde27-default-rtdb.firebaseio.com/discord/info/$q.json")"
-        if [[ "$embed" == "null" ]]; then
-            embed="$(jq -n --arg tit "Info for '$q'" --arg res "No results found for '$q'." '{"embed":{"title":$tit,"description":$res,"color":"13458524"}}')"
+    *) 
+        if [[ "$subcmd" == "search" ]]; then
+            q="$(echo "$q" | jq -Rr '@uri')"
         fi
-        json="$(printf "%s\n" "$embed" | jq '{ "embeds": [ .embed ] }')"
+        info_other "$q"
         ;;
 esac
 
