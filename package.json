@@ -1,0 +1,17 @@
+{
+  "name": "bashbot",
+  "version": "0.0.1",
+  "description": "Logs slash commands to console to be used as a wrapper for bashbot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Syretia",
+  "license": "MIT",
+  "dependencies": {
+    "discord-slash-commands": "https://github.com/ShadeDevelopment/discord-slash-commands",
+    "discord.js": "^12.5.2",
+    "dotenv": "^10.0.0"
+  }
+}
