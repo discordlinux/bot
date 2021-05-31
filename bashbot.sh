@@ -10,42 +10,42 @@ source "$botdir"/.env
 
 # function to create fifo pipe and run while loop to monitor it
 pipestart() {
-	# remove pipe on exit
-	trap "rm -f /tmp/.botpipe" EXIT
-	# create pipe if it doesn't exist
-	if [[ ! -p "/tmp/.botpipe" ]]; then
-		mkfifo /tmp/.botpipe
-	fi
-	# while loop to monitor pipe
-	while true; do
-		# read line from fifo pipe
-		if IFS= read -r line </tmp/.botpipe; then
-			# set .name from json as input
-			input="$(printf "%s\n" "$line" | jq -r '.name' 2>/dev/null)"
-			# check if command script exists for input
-			if [[ -f "${botdir}/commands/${input}.sh" ]]; then
-				# source command script with line var as argument and fork it
-				source "$botdir"/commands/"$input".sh "$line" & disown
-			# break if input is exit and user id == owner_id
-			elif [[ "$input" == "exit" && "$(printf "%s\n" "$line" | jq -r '.member.user.id')" == "$owner_id" ]]; then
-				break
-			# else unknown input
-			else
-				[[ "$input" != "Ready" ]] && echo -e "\nUnknown input:"
-				printf "%s\n" "$line" | jq -r '.' 2>/dev/null || printf "%s\n" "$line"
-			fi
-			unset input
-		fi
-	done
-	# remove pipe before exiting
-	rm -f /tmp/.botpipe
-	exit 0
+    # remove pipe on exit
+    trap "rm -f /tmp/.botpipe" EXIT
+    # create pipe if it doesn't exist
+    if [[ ! -p "/tmp/.botpipe" ]]; then
+        mkfifo /tmp/.botpipe
+    fi
+    # while loop to monitor pipe
+    while true; do
+        # read line from fifo pipe
+        if IFS= read -r line </tmp/.botpipe; then
+            # set .name from json as input
+            input="$(printf "%s\n" "$line" | jq -r '.name' 2>/dev/null)"
+            # check if command script exists for input
+            if [[ -f "${botdir}/commands/${input}.sh" ]]; then
+                # source command script with line var as argument and fork it
+                source "$botdir"/commands/"$input".sh "$line" & disown
+            # break if input is exit and user id == owner_id
+            elif [[ "$input" == "exit" && "$(printf "%s\n" "$line" | jq -r '.member.user.id')" == "$owner_id" ]]; then
+                break
+            # else unknown input
+            else
+                [[ "$input" != "Ready" ]] && echo -e "\nUnknown input:"
+                printf "%s\n" "$line" | jq -r '.' 2>/dev/null || printf "%s\n" "$line"
+            fi
+            unset input
+        fi
+    done
+    # remove pipe before exiting
+    rm -f /tmp/.botpipe
+    exit 0
 }
 
 # function to kill node and this script on exit or sigint
 exitfunc() {
-	pkill node
-	pkill bashbot
+    pkill node
+    pkill bashbot
 }
 
 # start and fork pipe function
