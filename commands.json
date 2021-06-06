@@ -6,7 +6,7 @@
         "type": 3,
         "name": "option",
         "required": true,
-        "description": "Use 'search' to find info not listed below. Use 'supported' to see if a distro is supported here.",
+        "description": "The 'query' argument *is required* when either 'search' or 'supported' are chosen.",
         "choices": [
         {
             "name": "Search for info",
