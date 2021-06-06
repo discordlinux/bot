@@ -57,6 +57,10 @@
             "value": "ubuntu%20budgie"
         },
         {
+            "name": "Long Term Support (LTS) Releases",
+            "value": "lts"
+        },
+        {
             "name": "Rolling release distros",
             "value": "rolling"
         },
@@ -87,6 +91,10 @@
         {
             "name": "Ubuntu Based",
             "value": "ubuntu%20based"
+        },
+        {
+            "name": "Snap Packages",
+            "value": "snaps"
         }
         ]
     },
