@@ -6,7 +6,7 @@
         "type": 3,
         "name": "option",
         "required": true,
-        "description": "The 'query' argument *is required* when either 'search' or 'supported' are chosen.",
+        "description": "Select an option...",
         "choices": [
         {
             "name": "Search for info",
@@ -101,8 +101,8 @@
     {
         "type": 3,
         "name": "query",
-        "required": false,
-        "description": "Only required when using 'search' or 'supported' options."
+        "required": true,
+        "description": "Only required when using 'search' or 'supported' options; will be ignored for other options."
     }
   ]
 },
