@@ -3,252 +3,99 @@
   "description": "Get information about things related to Linux and the guild.",
   "options": [
     {
-        "type": 1,
-        "name": "search",
-        "description": "Quick search for information.  Any unlisted queries will return Wikipedia results.",
-        "options": [
-          {
-            "type": 3,
-            "name": "query",
-            "required": true,
-            "description": "Enter a query..."
-          }
-        ]
-    },
-    {
-      "type": 1,
-      "name": "distros",
-      "description": "Information about Linux distributions.",
-      "options": [
+        "type": 3,
+        "name": "option",
+        "required": true,
+        "description": "Use 'search' to find info not listed below. Use 'supported' to see if a distro is supported here.",
+        "choices": [
         {
-          "type": 3,
-          "name": "query",
-          "required": true,
-          "description": "Get information about...",
-          "choices": [
-            {
-              "name": "Recommended Linux Distros",
-              "value": "recommended"
-            },
-            {
-              "name": "Kubuntu",
-              "value": "kubuntu"
-            },
-            {
-              "name": "Xubuntu",
-              "value": "xubuntu"
-            },
-            {
-              "name": "Ubuntu MATE",
-              "value": "ubuntu%20mate"
-            },
-            {
-              "name": "KDE neon",
-              "value": "kde%20neon"
-            },
-            {
-              "name": "openSUSE Leap",
-              "value": "opensuse"
-            },
-            {
-              "name": "Mageia",
-              "value": "mageia"
-            },
-            {
-              "name": "Ubuntu",
-              "value": "ubuntu"
-            },
-            {
-              "name": "Lubuntu",
-              "value": "lubuntu"
-            },
-            {
-              "name": "Ubuntu Budgie",
-              "value": "ubuntu%20budgie"
-            },
-            {
-              "name": "Arch",
-              "value": "arch"
-            },
-            {
-              "name": "Arch Variants",
-              "value": "arch%20variants"
-            },
-            {
-              "name": "Debian",
-              "value": "debian"
-            },
-            {
-              "name": "Fedora",
-              "value": "fedora"
-            },
-            {
-              "name": "Gentoo",
-              "value": "gentoo"
-            },
-            {
-              "name": "Kali Linux",
-              "value": "kali"
-            },
-            {
-              "name": "Manjaro",
-              "value": "manjaro"
-            },
-            {
-              "name": "openSUSE Tumbleweed",
-              "value": "tumbleweed"
-            },
-            {
-              "name": "Mint",
-              "value": "mint"
-            },
-            {
-              "name": "RHEL",
-              "value": "wiki_rhel"
-            },
-            {
-              "name": "Rolling release distros",
-              "value": "rolling"
-            },
-            {
-              "name": "Slackware",
-              "value": "slackware"
-            },
-            {
-              "name": "Solus",
-              "value": "solus"
-            },
-            {
-              "name": "Ubuntu Based",
-              "value": "ubuntu%20based"
-            },
-            {
-              "name": "Void",
-              "value": "void"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": 1,
-      "name": "linux",
-      "description": "Information about things related to Linux.",
-      "options": [
+            "name": "Search for info",
+            "value": "search"
+        },
         {
-          "type": 3,
-          "name": "query",
-          "required": true,
-          "description": "Get information about...",
-          "choices": [
-            {
-              "name": "AppImages",
-              "value": "appimages"
-            },
-            {
-              "name": "Boot Repair",
-              "value": "boot-repair"
-            },
-            {
-              "name": "Customizing Linux Desktops",
-              "value": "customization"
-            },
-            {
-              "name": "Desktop Environment",
-              "value": "wiki_desktop%20environment"
-            },
-            {
-              "name": "ISO to USB",
-              "value": "isotousb"
-            },
-            {
-              "name": "Long Term Support (LTS) Releases",
-              "value": "lts"
-            },
-            {
-              "name": "nomodeset",
-              "value": "nomodeset"
-            },
-            {
-              "name": "Package Manager",
-              "value": "wiki_package%20manager"
-            },
-            {
-              "name": "Panda Wifi Dongles",
-              "value": "panda-wifi"
-            },
-            {
-              "name": "Shell Scripting",
-              "value": "shell"
-            },
-            {
-              "name": "Snap Packages",
-              "value": "snaps"
-            },
-            {
-              "name": "Troubleshooter Script",
-              "value": "troubleshooter"
-            },
-            {
-              "name": "Universal Packages",
-              "value": "appbundlers"
-            },
-            {
-              "name": "Window Manager",
-              "value": "wiki_window%20manager"
-            }
-          ]
+            "name": "Supported Linux Distros",
+            "value": "supported"
+        },
+        {
+            "name": "Recommended Linux Distros",
+            "value": "recommended"
+        },
+        {
+            "name": "Kubuntu",
+            "value": "kubuntu"
+        },
+        {
+            "name": "Xubuntu",
+            "value": "xubuntu"
+        },
+        {
+            "name": "Ubuntu MATE",
+            "value": "ubuntu%20mate"
+        },
+        {
+            "name": "KDE neon",
+            "value": "kde%20neon"
+        },
+        {
+            "name": "openSUSE Leap",
+            "value": "opensuse"
+        },
+        {
+            "name": "Mageia",
+            "value": "mageia"
+        },
+        {
+            "name": "Ubuntu",
+            "value": "ubuntu"
+        },
+        {
+            "name": "Lubuntu",
+            "value": "lubuntu"
+        },
+        {
+            "name": "Ubuntu Budgie",
+            "value": "ubuntu%20budgie"
+        },
+        {
+            "name": "Rolling release distros",
+            "value": "rolling"
+        },
+        {
+            "name": "Arch",
+            "value": "arch"
+        },
+        {
+            "name": "Arch Variants",
+            "value": "arch%20variants"
+        },
+        {
+            "name": "Kali Linux",
+            "value": "kali"
+        },
+        {
+            "name": "Manjaro",
+            "value": "manjaro"
+        },
+        {
+            "name": "openSUSE Tumbleweed",
+            "value": "tumbleweed"
+        },
+        {
+            "name": "Mint",
+            "value": "mint"
+        },
+        {
+            "name": "Ubuntu Based",
+            "value": "ubuntu%20based"
         }
-      ]
+        ]
     },
     {
-        "type": 1,
-        "name": "roles",
-        "description": "Information about roles in Discord Linux.",
-        "options": [
-          {
-            "type": 3,
-            "name": "query",
-            "required": true,
-            "description": "Get information about...",
-            "choices": [
-              {
-                "name": "mail role",
-                "value": "mail%20role"
-              },
-              {
-                "name": "news role",
-                "value": "news%20role"
-              },
-              {
-                "name": "systemd role",
-                "value": "systemd%20role"
-              },
-              {
-                "name": "tty role",
-                "value": "tty%20role"
-              },
-              {
-                "name": "users role",
-                "value": "users%20role"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "type": 1,
-        "name": "supported",
-        "description": "Check if distros are supported in Discord Linux.",
-        "options": [
-          {
-            "type": 3,
-            "name": "query",
-            "required": true,
-            "description": "Enter a distro..."
-          }
-        ]
-      }
+        "type": 3,
+        "name": "query",
+        "required": false,
+        "description": "Only required when using 'search' or 'supported' options."
+    }
   ]
 },
 {
