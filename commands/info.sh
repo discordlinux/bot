@@ -83,8 +83,8 @@ case "$opt_value" in
         info_supported "$q"
         ;;
     search)
-        # set q to uri encoded value of second option and run info_other function
-        q="$(printf "%s\n" "$@" | jq -r '.options[1].value | @uri')"
+        # set q to lowercase uri encoded value of second option and run info_other function
+        q="$(printf "%s\n" "$@" | jq -r '.options[1].value | ascii_downcase | @uri')"
         info_other "$q"
         ;;
     *) 
