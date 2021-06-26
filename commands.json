@@ -1,12 +1,12 @@
 [{
   "name": "info",
-  "description": "Get information about things related to Linux and the guild.",
+  "description": "NOTE: 'query' is *REQUIRED* when using the search and supported options!",
   "options": [
     {
         "type": 3,
         "name": "option",
         "required": true,
-        "description": "Select an option...",
+        "description": "NOTE: 'query' is *REQUIRED* when using the search and supported options!",
         "choices": [
         {
             "name": "Search for info",
@@ -101,7 +101,7 @@
     {
         "type": 3,
         "name": "query",
-        "required": true,
+        "required": false,
         "description": "Only required when using 'search' or 'supported' options; will be ignored for other options."
     }
   ]
